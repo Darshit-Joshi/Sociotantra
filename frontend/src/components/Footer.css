@@ -1,0 +1,80 @@
+.footer {
+  background-color: #0f2f2a; /* deep green/teal */
+  color: #e8f1ef;
+  padding: 50px 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Sections */
+.footer-section {
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+/* Headings */
+.footer-section h2,
+.footer-section h3 {
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+/* Paragraph text */
+.footer-section p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #cfdedb;
+}
+
+/* Contact items */
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* Icons */
+.footer-icon {
+  color: #1a8f5c;
+  font-size: 1.1rem;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #b8cbc7;
+}
+
+/* Layout for larger screens */
+@media (min-width: 768px) {
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom {
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .footer {
+    padding: 40px 20px;
+  }
+
+  .footer-section {
+    max-width: 100%;
+  }
+}

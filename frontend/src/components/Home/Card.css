@@ -1,0 +1,35 @@
+.card {
+  width: 300px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* dark overlay for readability */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+  color: white;
+  z-index: 1;
+}
+
+.card-overlay h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.card-overlay p {
+  margin-top: 6px;
+  font-size: 14px;
+}
