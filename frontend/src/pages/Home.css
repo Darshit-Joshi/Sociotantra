@@ -7,7 +7,76 @@
 .donate {
   padding: 70px 10%;
 }
+.hero {
+  position: relative;
+  height: 90vh;
+  background: url("/images/hero-bg.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+}
 
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.25)
+  );
+}
+
+.hero-content {
+  position: relative;
+  max-width: 650px;
+  color: #fff;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  color: #eaeaea;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 26px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.btn.primary {
+  background: #f4a21e;
+  color: #fff;
+}
+
+.btn.secondary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn.outline {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
 /* ---------------- ABOUT SECTION ---------------- */
 
 .about {
@@ -36,6 +105,18 @@
 
 /* ---------------- WHAT WE DO ---------------- */
 
+.empower {
+  height: 85vh;
+  background-image: url("/src/assets/image11.jpg"); /* <-- put image here */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+}
 .what {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

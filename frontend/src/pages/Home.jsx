@@ -1,146 +1,172 @@
 import { NavLink } from "react-router-dom";
 import "./Home.css";
 import Slider from "../components/Home/slider";
+
 function Home() {
+  // What we do section data
   const whatWeDo = [
     {
-      head: "Medical Treatment Support",
-      desc: "We provide financial assistance for surgeries, hospital admissions, and long-term medical treatments for individuals who cannot afford essential healthcare.",
-      url: "/images/medical-treatment.jpg",
+      title: "Skill Development & Women Empowerment",
+      desc: "We provide free vocational training, skill-building programs, and personalized counseling to empower youth and women with confidence, employability, and self-reliance.",
+      url: "src/assets/image7.jpeg",
     },
     {
-      head: "Emergency Healthcare",
-      desc: "We offer immediate support during critical medical emergencies where timely treatment can save lives.",
-      url: "/images/emergency-care.jpg",
+      title: "Healthcare & Medical Support",
+      desc: "We support underprivileged individuals with medical treatment assistance, emergency healthcare, and access to essential medicines and diagnostics.",
+      url: "src/assets/image8.jpeg",
     },
     {
-      head: "Medicines & Diagnostics",
-      desc: "We help patients access essential medicines, diagnostic tests, and follow-up care without financial burden.",
-      url: "/images/medicines-diagnostics.jpg",
-    },
-    {
-      head: "Health Camps & Awareness",
-      desc: "We organize free medical camps and healthcare awareness programs to promote preventive care in communities.",
-      url: "/images/health-camp.jpg",
+      title: "Community Awareness & Health Camps",
+      desc: "We conduct awareness programs and free health camps focused on education, preventive healthcare, safety, and critical social issues.",
+      url: "src/assets/image9.jpeg",
     },
   ];
+
+  // Impact stats
   const impactData = [
     {
-      value: "150+",
-      title: "Patients Supported",
-      desc: "Individuals who received medical or financial assistance.",
+      value: "1000+",
+      title: "Beneficiaries Trained",
+      desc: "Individuals empowered through free skill training, workshops, and guidance programs.",
       rotate: "-4deg",
     },
     {
-      value: "₹5,00,000+",
-      title: "Medical Aid Provided",
-      desc: "Funds used for treatments, medicines, and diagnostics.",
+      value: "200+",
+      title: "Counselling Sessions",
+      desc: "One-on-one and group counselling sessions providing emotional, mental, and career support.",
       rotate: "3deg",
     },
     {
-      value: "12+",
-      title: "Health Camps Conducted",
-      desc: "Free medical checkups and awareness programs.",
+      value: "50+",
+      title: "Awareness Camps Conducted",
+      desc: "Community outreach programs focused on education, health awareness, and social issues.",
       rotate: "-2deg",
     },
     {
-      value: "40+",
-      title: "Volunteers Engaged",
-      desc: "People contributing time and skills.",
+      value: "50+",
+      title: "Active Volunteers",
+      desc: "Dedicated volunteers contributing time, skills, and expertise to drive social impact.",
       rotate: "4deg",
     },
   ];
+
+  // Testimonials
   const testimonials = [
     {
       name: "Rekha Patil",
       role: "Patient's Family Member",
       message:
-        "When we had lost all hope, Sociotantra stepped in and helped us with medical expenses. Their support came at the most critical time of our lives.",
+        "When we had lost all hope, Sociotantra stepped in and helped us with medical expenses.",
       image: "https://images.unsplash.com/photo-1554151228-14d9def656e4",
     },
     {
       name: "Dr. Amit Kulkarni",
       role: "Volunteer Doctor",
       message:
-        "Being associated with Sociotantra allows me to serve people who truly need medical care but cannot afford it. The transparency and dedication here are commendable.",
+        "Being associated with Sociotantra allows me to serve people who truly need medical care.",
       image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7",
     },
     {
       name: "Suresh Jadhav",
       role: "Community Volunteer",
       message:
-        "I've seen firsthand how even small contributions make a huge difference. Sociotantra ensures help reaches the right hands at the right time.",
+        "Small contributions make a huge difference when managed transparently.",
       image: "https://images.unsplash.com/photo-1527980965255-d3b416303d12",
     },
   ];
 
   return (
     <div>
-      <Slider />
-      <div className="about">
+      <section className="hero">
+        <div className="hero-overlay"></div>
+
+        <div className="hero-content">
+          <h1>
+            Empowering Communities <br />
+            Through Free Training & Counseling
+          </h1>
+
+          <p>
+            Supporting underprivileged individuals with skill development,
+            emotional counseling, and awareness programs to build a stronger
+            society.
+          </p>
+
+          <div className="hero-buttons">
+            <button className="btn primary">Donate Now</button>
+            <button className="btn secondary">Volunteer With Us</button>
+            <button className="btn outline">Get Help</button>
+          </div>
+        </div>
+      </section>
+      {/* About section */}
+      <section className="about">
         <h2>Who We Are</h2>
         <p>
-          We are a healthcare-focused non-profit organization based in Thane,
-          Maharashtra, working to provide medical and financial assistance to
-          individuals who cannot afford essential treatment.
+          Sociotantra Global Foundation is a non-profit organization dedicated
+          to uplifting underprivileged communities through free training
+          programs, counseling support, and awareness camps. We believe every
+          individual deserves equal opportunities to grow, learn, and succeed
         </p>
-        <NavLink to={"/"}>Learn More About Us</NavLink>
-      </div>
-      <div className="what">
-        {whatWeDo.map((item, index) => (
-          <div className="work-card" key={index}>
-            <img src={item.url} alt={item.head} />
-            <h3>{item.head}</h3>
+        <NavLink to="/about">Learn More About Us</NavLink>
+      </section>
+
+      {/* What we do */}
+      <section className="what">
+        {whatWeDo.map((item) => (
+          <div className="work-card" key={item.title}>
+            <img src={item.url} alt={item.title} />
+            <h3>{item.title}</h3>
             <p>{item.desc}</p>
           </div>
         ))}
-      </div>
-      <div className="why">
+      </section>
+
+      {/* Why support matters */}
+      <section className="why">
         <h3>Why Your Support Matters</h3>
-        <img src="#" />
+        {/* TODO: Replace placeholder image */}
+        {/* <img src="/images/why-support.jpg" alt="Why support matters" /> */}
         <p>
-          For many families, medical expenses mean choosing between treatment
-          and survival. Rising healthcare costs often force people to delay or
-          abandon life-saving care. Your support helps bridge this gap by
-          ensuring timely medical assistance for those who need it most.
+          Rising healthcare costs often force people to abandon life-saving
+          care. Your support helps bridge this gap.
         </p>
-      </div>
-      <div className="impact">
+      </section>
+
+      {/* Impact section */}
+      <section className="impact">
         <h3>Our Impact So Far</h3>
         <span>
-          Every contribution helps us move closer to accessible healthcare for
-          all.
+          Every contribution helps us move closer to accessible healthcare.
         </span>
+
         <div className="impact-container">
-          {impactData.map((item, index) => (
+          {impactData.map((item) => (
             <div
               className="impact-card"
-              key={index}
+              key={item.title}
               style={{ transform: `rotate(${item.rotate})` }}
             >
-              <h2 className="impact-value">{item.value}</h2>
-              <h4 className="impact-title">{item.title}</h4>
-              <p className="impact-desc">{item.desc}</p>
+              <h2>{item.value}</h2>
+              <h4>{item.title}</h4>
+              <p>{item.desc}</p>
             </div>
           ))}
         </div>
-      </div>
-      <div className="testimonial">
+      </section>
+
+      {/* Testimonials */}
+      <section className="testimonial">
         <h3>What People Say About Us</h3>
-        <span>Real stories from lives touched by Sociotantra</span>
+        <span>Real stories from lives touched</span>
 
         <div className="testimonial-container">
-          {testimonials.map((item, index) => (
-            <div className="testimonial-card" key={index}>
-              <p className="testimonial-message">“{item.message}”</p>
+          {testimonials.map((item) => (
+            <div className="testimonial-card" key={item.name}>
+              <p>“{item.message}”</p>
 
               <div className="testimonial-user">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  height={"200px"}
-                  width={"200px"}
-                />
+                <img src={item.image} alt={item.name} />
                 <div>
                   <h4>{item.name}</h4>
                   <small>{item.role}</small>
@@ -149,18 +175,16 @@ function Home() {
             </div>
           ))}
         </div>
-      </div>
-      <div className="donate">
+      </section>
+
+      {/* Donate CTA */}
+      <section className="donate">
         <div className="donate-content">
-          <h3>Help Save Lives, One Contribution at a Time</h3>
+          <h3>Help Save Lives</h3>
           <p>
-            Your donation helps provide medical treatment, medicines, and
-            financial assistance to individuals who cannot afford healthcare.
-            Every contribution, big or small, makes a real difference.
+            Your donation provides medical treatment and financial assistance.
           </p>
-          <span>
-            100% transparency • Funds used strictly for healthcare support
-          </span>
+          <span>100% transparency • Healthcare only</span>
         </div>
 
         <div className="donate-box">
@@ -174,11 +198,11 @@ function Home() {
           </div>
 
           <button className="donate-main-btn">Donate Now</button>
-
-          <small>Secure payments • UPI • Cards • Net Banking</small>
+          <small>Secure payments • UPI • Cards</small>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
+
 export default Home;

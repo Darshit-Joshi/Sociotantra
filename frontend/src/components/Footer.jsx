@@ -1,8 +1,10 @@
 import { FaRegCopyright, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import "./Footer.css";
+
 function Footer() {
   return (
-    <div className="footer">
+    <footer className="footer">
+      {/* Disclaimer / About section */}
       <div className="footer-section">
         <h2>DISCLAIMER</h2>
         <p>
@@ -13,23 +15,28 @@ function Footer() {
         </p>
       </div>
 
+      {/* Contact information */}
       <div className="footer-section">
         <h3>CONTACT DETAILS</h3>
+
         <p className="footer-item">
-          <FaMapMarkerAlt className="footer-icon" />
+          <FaMapMarkerAlt className="footer-icon" aria-hidden="true" />
           Thane, Maharashtra, India
         </p>
+
         <p className="footer-item">
-          <FaPhoneAlt className="footer-icon" />
+          <FaPhoneAlt className="footer-icon" aria-hidden="true" />
           +91 98202 89595
         </p>
       </div>
 
+      {/* Footer bottom bar */}
       <div className="footer-bottom">
-        <FaRegCopyright className="footer-icon" />
-        <span>2026 Sociotantra. All rights reserved</span>
+        <FaRegCopyright className="footer-icon" aria-hidden="true" />
+        <span>2026 Sociotantra. All rights reserved.</span>
       </div>
-    </div>
+    </footer>
   );
 }
+
 export default Footer;

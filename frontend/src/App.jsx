@@ -1,15 +1,18 @@
-import Home from "./pages/Home.jsx";
-import Donate from "./pages/Donate.jsx";
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
+import { Route, Routes } from "react-router-dom";
+import Donate from "./pages/Donate";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import About from "./pages/About";
 function App() {
   return (
-    <div>
+    <>
       <Header />
-      <Home />
-      <Donate />
-      <Footer />
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </>
   );
 }
 export default App;
