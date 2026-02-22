@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import "./Home.css";
-import Slider from "../components/Home/slider";
 
 function Home() {
   // What we do section data
