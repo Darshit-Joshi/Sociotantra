@@ -1,3 +1,13 @@
+/* Reset safety */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Header */
 .head {
   display: flex;
   align-items: center;
@@ -11,11 +21,13 @@
 }
 
 /* Logo */
-.head img {
+.logo {
+  height: 52px;
+  width: auto;
   cursor: pointer;
 }
 
-/* Nav list */
+/* Nav */
 .list {
   display: flex;
   align-items: center;
@@ -24,7 +36,7 @@
 
 /* Links */
 .list-item {
-  color: #eaf6f6 !important;
+  color: #eaf6f6;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
@@ -33,7 +45,12 @@
   transition: color 0.3s ease;
 }
 
-/* Underline hover effect */
+/* Active & hover */
+.list-item:hover,
+.list-item.active {
+  color: #00e676;
+}
+
 .list-item::after {
   content: "";
   position: absolute;
@@ -45,15 +62,12 @@
   transition: width 0.3s ease;
 }
 
-.list-item:hover {
-  color: #00e676 !important;
-}
-
-.list-item:hover::after {
+.list-item:hover::after,
+.list-item.active::after {
   width: 100%;
 }
 
-/* Search box */
+/* Search */
 .search {
   display: flex;
   align-items: center;
@@ -63,12 +77,54 @@
   border-radius: 25px;
   font-size: 14px;
   cursor: pointer;
-  transition:
-    box-shadow 0.3s ease,
-    transform 0.2s ease;
 }
 
-.search:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transform: translateY(-1px);
+/* Hamburger (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===================== */
+/* MOBILE RESPONSIVE */
+/* ===================== */
+
+@media (max-width: 768px) {
+  .head {
+    padding: 0 20px;
+  }
+
+  /* Show hamburger */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide desktop nav */
+  .list {
+    position: absolute;
+    top: 88px;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #0f2027, #203a43);
+    flex-direction: column;
+    gap: 18px;
+    padding: 25px 0;
+    display: none;
+  }
+
+  /* Open menu */
+  .list.active {
+    display: flex;
+  }
+
+  .list-item {
+    font-size: 16px;
+  }
+
+  /* Search full width */
+  .search {
+    display: none; /* cleaner UX */
+  }
 }

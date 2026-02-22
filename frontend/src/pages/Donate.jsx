@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Donate.css";
+
 function Donate() {
   const [amount, setAmount] = useState(1000);
   const [customAmount, setCustomAmount] = useState("");
@@ -16,70 +17,111 @@ function Donate() {
   }
 
   async function handleDonate() {
+    if (amount < 100) {
+      alert("Minimum donation amount is ₹100");
+      return;
+    }
+
     setLoading(true);
 
     const res = await loadRazorpay();
     if (!res) {
-      alert("Razorpay SDK failed to load");
+      alert("Payment SDK failed to load. Please try again.");
       setLoading(false);
       return;
     }
 
     /*
-    NEXT STEP (later):
-    1. Call backend to create order
-    2. Receive order_id
-    3. Open Razorpay checkout
-  */
-  
+      NEXT STEP (BACKEND REQUIRED):
+      1. Call backend -> create Razorpay order
+      2. Get order_id
+      3. Open Razorpay checkout
+      4. Verify payment on backend
+    */
 
     setLoading(false);
   }
 
   return (
     <div className="donate-page">
-      <h2>Support Healthcare for Those in Need</h2>
-      <p>
-        Your contribution helps provide medical treatment and financial
-        assistance to individuals who cannot afford healthcare.
-      </p>
+      {/* HEADER */}
+      <div className="donate-header">
+        <h2>Support Healthcare for Those in Need</h2>
+        <p>
+          Your donation helps underprivileged individuals access medical
+          treatment, emergency care, and essential healthcare services.
+        </p>
+      </div>
 
-      <div className="amount-options">
-        {[500, 1000, 2500, 5000].map((amt) => (
-          <button
-            key={amt}
-            className={amount === amt ? "active" : ""}
-            onClick={() => {
-              setAmount(amt);
-              setCustomAmount("");
+      {/* WHY DONATE */}
+      <div className="donate-why">
+        <h3>Why Your Support Matters</h3>
+        <ul>
+          <li>✔ Covers medical treatment and hospital expenses</li>
+          <li>✔ Supports patients who cannot afford care</li>
+          <li>✔ Ensures transparent and ethical fund usage</li>
+        </ul>
+      </div>
+
+      {/* AMOUNT SELECTION */}
+      <div className="donate-box">
+        <h4>Select Donation Amount</h4>
+
+        <div className="amount-options">
+          {[500, 1000, 2500, 5000].map((amt) => (
+            <button
+              key={amt}
+              className={amount === amt ? "active" : ""}
+              onClick={() => {
+                setAmount(amt);
+                setCustomAmount("");
+              }}
+            >
+              ₹{amt}
+            </button>
+          ))}
+        </div>
+
+        {/* CUSTOM AMOUNT */}
+        <div className="custom-amount">
+          <span>₹</span>
+          <input
+            type="number"
+            placeholder="Enter custom amount (min ₹100)"
+            value={customAmount}
+            min="100"
+            onChange={(e) => {
+              const val = Number(e.target.value);
+              setCustomAmount(val);
+              if (val >= 100) setAmount(val);
             }}
-          >
-            ₹{amt}
-          </button>
-        ))}
+          />
+        </div>
+
+        {/* DONATE BUTTON */}
+        <button
+          className="donate-btn"
+          onClick={handleDonate}
+          disabled={loading}
+        >
+          {loading ? "Processing..." : `Donate ₹${amount}`}
+        </button>
+
+        <small className="donate-note">
+          Secure payments • UPI • Cards • Net Banking
+        </small>
       </div>
 
-      <div className="custom-amount">
-        <span>₹</span>
-        <input
-          type="number"
-          placeholder="Enter custom amount"
-          value={customAmount}
-          min="100"
-          onChange={(e) => {
-            const val = Number(e.target.value);
-            setCustomAmount(val);
-            if (val >= 100) setAmount(val);
-          }}
-        />
+      {/* TRANSPARENCY */}
+      <div className="donate-transparency">
+        <h4>Transparency Promise</h4>
+        <p>
+          We are committed to 100% transparency. Donations are used strictly for
+          healthcare and medical support initiatives.
+        </p>
       </div>
-
-      <button className="donate-btn" onClick={handleDonate} disabled={loading}>
-        {loading ? "Processing..." : `Donate ₹${amount}`}
-      </button>
-
-      <small>Secure payments • UPI • Cards • Net Banking</small>
     </div>
   );
 }
+
 export default Donate;

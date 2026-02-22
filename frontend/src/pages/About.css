@@ -117,3 +117,44 @@
     font-size: 1.7rem;
   }
 }
+/* GALLERY */
+.gallery-section {
+  text-align: center;
+}
+
+.gallery-slider {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gallery-image {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.nav-btn {
+  background: #1f3c88;
+  color: white;
+  border: none;
+  font-size: 28px;
+  padding: 8px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .gallery-image {
+    height: 220px;
+  }
+
+  .nav-btn {
+    font-size: 22px;
+    padding: 6px 12px;
+  }
+}

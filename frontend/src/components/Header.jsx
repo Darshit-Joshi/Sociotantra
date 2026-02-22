@@ -1,84 +1,54 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import "./Header.css";
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="head">
+    <header className="head">
       {/* Logo */}
-      <img src="/src/assets/logo.png" height="250" width="250" alt="Logo" />
+      <img
+        src="/src/assets/logo.png"
+        alt="Logo"
+        className="logo"
+        onClick={() => setMenuOpen(false)}
+      />
 
-      {/* Navigation links */}
-      <div className="list">
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive ? "list-item active" : "list-item"
-          }
-        >
-          Home
-        </NavLink>
-
-        <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            isActive ? "list-item active" : "list-item"
-          }
-        >
-          About Us
-        </NavLink>
-
-        <NavLink
-          to="/donate"
-          className={({ isActive }) =>
-            isActive ? "list-item active" : "list-item"
-          }
-        >
-          Donate
-        </NavLink>
-
-        <NavLink
-          to="/programs"
-          className={({ isActive }) =>
-            isActive ? "list-item active" : "list-item"
-          }
-        >
-          Programs
-        </NavLink>
-
-        <NavLink
-          to="/volunteer"
-          className={({ isActive }) =>
-            isActive ? "list-item active" : "list-item"
-          }
-        >
-          Volunteer
-        </NavLink>
-
-        <NavLink
-          to="/gallery"
-          className={({ isActive }) =>
-            isActive ? "list-item active" : "list-item"
-          }
-        >
-          Gallery
-        </NavLink>
-
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            isActive ? "list-item active" : "list-item"
-          }
-        >
-          Contact
-        </NavLink>
+      {/* Hamburger */}
+      <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FaTimes /> : <FaBars />}
       </div>
 
-      {/* Search (UI only for now) */}
+      {/* Navigation */}
+      <nav className={`list ${menuOpen ? "active" : ""}`}>
+        {[
+          { to: "/", label: "Home" },
+          { to: "/about", label: "About Us" },
+          { to: "/donate", label: "Donate" },
+          { to: "/volunteer", label: "Volunteer" },
+          { to: "/contact", label: "Contact" },
+        ].map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) =>
+              isActive ? "list-item active" : "list-item"
+            }
+            onClick={() => setMenuOpen(false)}
+          >
+            {item.label}
+          </NavLink>
+        ))}
+      </nav>
+
+      {/* Search */}
       <div className="search">
-        <FaSearch /> Search...
+        <FaSearch />
+        <span>Search...</span>
       </div>
-    </div>
+    </header>
   );
 }
 

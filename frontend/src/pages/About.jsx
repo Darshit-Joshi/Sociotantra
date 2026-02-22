@@ -1,33 +1,44 @@
+import { useState } from "react";
 import "./About.css";
+
 function About() {
+  const images = [
+    "/src/assets/image4.jpeg",
+    "/src/assets/image5.jpeg",
+    "/src/assets/image6.jpeg",
+    "/src/assets/image7.jpeg",
+    "/src/assets/image8.jpeg",
+    "/src/assets/image9.jpeg",
+  ];
+
+  const [current, setCurrent] = useState(0);
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
   return (
     <div className="about-page">
-      {/* HERO / INTRO */}
+      {/* HERO */}
       <section className="about-hero">
         <h1>About Sociotantra Global Foundation</h1>
         <p>
           Sociotantra Global Foundation is a non-profit organization committed
-          to building an inclusive, aware, and empowered society. Based in
-          India, we work closely with communities at the grassroots level to
-          address gaps in healthcare, education, skills, and mental well-being.
+          to building an inclusive, aware, and empowered society across India.
         </p>
       </section>
 
-      {/* OUR STORY */}
+      {/* STORY */}
       <section className="about-section">
         <h2>Our Story</h2>
         <p>
-          Sociotantra Global Foundation was founded with a clear vision — to
-          create meaningful social impact by addressing real problems faced by
-          marginalized and underprivileged communities. What began as a small
-          initiative has grown into a collective effort driven by compassion,
-          responsibility, and a deep belief in human dignity.
-        </p>
-        <p>
-          We work directly with individuals and families who lack access to
-          essential resources, offering support in healthcare assistance,
-          education, skill development, and emotional well-being. Our approach
-          focuses on long-term empowerment rather than short-term relief.
+          Founded with a clear vision to address real challenges faced by
+          marginalized communities, Sociotantra Global Foundation focuses on
+          long-term empowerment rather than short-term relief.
         </p>
       </section>
 
@@ -36,20 +47,38 @@ function About() {
         <div className="about-card">
           <h2>Our Mission</h2>
           <p>
-            To empower underprivileged communities through accessible
-            healthcare, education, skill development, awareness programs, and
-            mental health support — enabling individuals to lead healthier,
-            dignified, and self-reliant lives.
+            To empower underprivileged communities through healthcare,
+            education, skill development, awareness, and mental well-being.
           </p>
         </div>
 
         <div className="about-card">
           <h2>Our Vision</h2>
           <p>
-            A society where every individual, regardless of background or
-            economic status, has equal opportunities, dignity, and access to
-            essential resources for personal and professional growth.
+            A society where everyone has equal access to opportunities, dignity,
+            and essential resources.
           </p>
+        </div>
+      </section>
+
+      {/* GALLERY SLIDER */}
+      <section className="about-section gallery-section">
+        <h2>Moments From Our Work</h2>
+
+        <div className="gallery-slider">
+          <button className="nav-btn" onClick={prevSlide}>
+            ‹
+          </button>
+
+          <img
+            src={images[current]}
+            alt="NGO activity"
+            className="gallery-image"
+          />
+
+          <button className="nav-btn" onClick={nextSlide}>
+            ›
+          </button>
         </div>
       </section>
 
@@ -58,24 +87,19 @@ function About() {
         <h2>Our Core Values</h2>
         <ul className="values-list">
           <li>
-            <strong>Compassion</strong> – We approach every individual with
-            care, empathy, and respect.
+            <strong>Compassion</strong> – Care and empathy in action.
           </li>
           <li>
-            <strong>Equality</strong> – We believe in equal opportunities and
-            non-discrimination in all our efforts.
+            <strong>Equality</strong> – Equal opportunity for all.
           </li>
           <li>
-            <strong>Transparency</strong> – We ensure honesty and accountability
-            in our work and use of resources.
+            <strong>Transparency</strong> – Accountability in everything.
           </li>
           <li>
-            <strong>Community Development</strong> – We focus on sustainable
-            growth by strengthening communities from within.
+            <strong>Community</strong> – Growth from within.
           </li>
           <li>
-            <strong>Empowerment</strong> – We aim to enable individuals to
-            become independent, confident, and self-sufficient.
+            <strong>Empowerment</strong> – Independence and dignity.
           </li>
         </ul>
       </section>
