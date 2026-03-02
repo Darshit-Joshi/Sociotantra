@@ -93,37 +93,39 @@
 /* ================= FORM ================= */
 /* ================= FORM BOX ================= */
 .volunteer-form-section {
-  padding: 80px 20px;
+  min-height: 100vh;
   display: flex;
+  align-items: center;
   justify-content: center;
+  background: #f3f6f9; /* neutral backdrop */
+  padding: 20px;
 }
 
-.volunteer-form-section > div {
-  width: 100%;
-  max-width: 720px;
+.volunteer-card {
   background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 28px;
   border-radius: 16px;
-  padding: 40px 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e5e7eb;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
-.volunteer-form-section h2 {
-  font-size: 26px;
-  margin-bottom: 8px;
-  color: #064e3b;
+.volunteer-card h2 {
   text-align: center;
+  margin-bottom: 6px;
+  color: #0b3d2e;
 }
 
-.volunteer-form-section p {
+.subtitle {
   text-align: center;
-  color: #475569;
-  margin-bottom: 30px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 24px;
 }
 
 .volunteer-form {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 14px;
 }
 
@@ -131,51 +133,44 @@
 .volunteer-form select,
 .volunteer-form textarea {
   padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  font-size: 15px;
-  outline: none;
+  border-radius: 8px;
+  border: 1px solid #d0d7de;
+  font-size: 14px;
+}
+
+.volunteer-form textarea {
+  resize: none;
 }
 
 .volunteer-form input:focus,
 .volunteer-form select:focus,
 .volunteer-form textarea:focus {
-  border-color: #10b981;
+  outline: none;
+  border-color: #14b86e;
 }
 
-.volunteer-form textarea {
-  resize: vertical;
+.privacy-note {
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 6px;
 }
 
 .volunteer-form button {
   margin-top: 10px;
-  padding: 14px;
-  border-radius: 999px;
+  padding: 12px;
+  background: #14b86e;
+  color: #fff;
   border: none;
-  background: #10b981;
-  color: white;
-  font-size: 16px;
+  border-radius: 24px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition:
-    background 0.25s ease,
-    transform 0.15s ease;
 }
 
 .volunteer-form button:hover {
-  background: #059669;
-  transform: translateY(-1px);
+  background: #0fa25f;
 }
-
-/* ================= PRIVACY ================= */
-.privacy-note {
-  margin-top: 18px;
-  font-size: 13px;
-  color: #64748b;
-  text-align: center;
-  line-height: 1.5;
-}
-
 /* ================= MOBILE ================= */
 @media (max-width: 480px) {
   .volunteer-hero h1 {

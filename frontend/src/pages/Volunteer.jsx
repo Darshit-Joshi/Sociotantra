@@ -45,48 +45,47 @@ function Volunteer() {
 
       {/* VOLUNTEER FORM */}
       <section className="volunteer-form-section">
-        <h2>Join as a Volunteer</h2>
-        <p>
-          Fill in the details below and our team will get in touch with you.
-        </p>
+        <div className="volunteer-card">
+          <h2>Join as a Volunteer</h2>
+          <p className="subtitle">
+            Fill in the details below and our team will get in touch with you.
+          </p>
 
-        <form className="volunteer-form">
-          <input type="text" placeholder="Full Name" required />
+          <form className="volunteer-form">
+            <input type="text" placeholder="Full Name" required />
+            <input type="email" placeholder="Email Address" required />
+            <input type="tel" placeholder="Phone Number" required />
+            <input type="text" placeholder="City" required />
 
-          <input type="email" placeholder="Email Address" required />
+            <select required>
+              <option value="">Area of Interest</option>
+              <option>Healthcare Support</option>
+              <option>Fundraising</option>
+              <option>Awareness Campaigns</option>
+              <option>Content & Media</option>
+              <option>Event Management</option>
+            </select>
 
-          <input type="tel" placeholder="Phone Number" required />
+            <select required>
+              <option value="">Availability</option>
+              <option>Weekdays</option>
+              <option>Weekends</option>
+              <option>Flexible</option>
+            </select>
 
-          <input type="text" placeholder="City" required />
+            <textarea
+              rows="4"
+              placeholder="Why do you want to volunteer? (optional)"
+            />
 
-          <select required>
-            <option value="">Area of Interest</option>
-            <option>Healthcare Support</option>
-            <option>Fundraising</option>
-            <option>Awareness Campaigns</option>
-            <option>Content & Media</option>
-            <option>Event Management</option>
-          </select>
+            <p className="privacy-note">
+              We respect your privacy. Your information will only be used to
+              contact you regarding volunteering opportunities.
+            </p>
 
-          <select required>
-            <option value="">Availability</option>
-            <option>Weekdays</option>
-            <option>Weekends</option>
-            <option>Flexible</option>
-          </select>
-
-          <textarea
-            rows="4"
-            placeholder="Why do you want to volunteer? (optional)"
-          ></textarea>
-
-          <button type="submit">Submit Application</button>
-        </form>
-
-        <p className="privacy-note">
-          We respect your privacy. Your information will only be used to contact
-          you regarding volunteering opportunities.
-        </p>
+            <button type="submit">Submit Application</button>
+          </form>
+        </div>
       </section>
     </div>
   );
