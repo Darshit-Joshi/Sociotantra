@@ -29,6 +29,8 @@ function Header() {
           { to: "/donate", label: "Donate" },
           { to: "/volunteer", label: "Volunteer" },
           { to: "/contact", label: "Contact" },
+          { to: "/admin/dashboard", label: "admin dashboard" },
+          { to: "admin/login", label: "login" },
         ].map((item) => (
           <NavLink
             key={item.to}

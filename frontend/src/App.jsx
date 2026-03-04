@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Volunteer from "./pages/Volunteer";
 import Contact from "./pages/Contact";
+import Login from "./admin/pages/Login";
+import Dashboard from "./admin/pages/Dashboard";
 function App() {
   return (
     <>
@@ -15,6 +17,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin/login" element={<Login />} />
+        <Route path="/admin/dashboard" element={<Dashboard />} />
       </Routes>
     </>
   );
