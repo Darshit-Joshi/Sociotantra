@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config({ path: "./.env" });
-
+import cors from "cors";
+app.use(cors()); // This tells Node to accept requests from React
 import connectDB from "./db/index.js";
 import { app } from "./app.js";
 

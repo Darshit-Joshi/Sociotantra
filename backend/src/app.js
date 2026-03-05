@@ -12,7 +12,7 @@ app.set("trust proxy", 1);
 // CORS setup
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN?.split(","),
+    origin: ["http://localhost:5173", "https://sociotantra.vercel.app/"],
     credentials: true,
   }),
 );
